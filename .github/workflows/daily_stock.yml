@@ -1,0 +1,27 @@
+name: 每日台股播報
+
+on:
+  schedule:
+    - cron: '30 0 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  send-stock-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 下載程式碼
+        uses: actions/checkout@v4
+
+      - name: 設定 Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安裝套件
+        run: pip install -r requirements.txt
+
+      - name: 執行台股播報
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python taiwan_stock_bot.py
