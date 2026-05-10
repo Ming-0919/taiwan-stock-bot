@@ -25,6 +25,8 @@ NEWS_FEEDS = [
 
 # 已發送過的新聞標題（避免重複發送）
 SENT_CACHE_FILE = "sent_news_cache.json"
+# GitHub Actions 每次都是全新環境，不需要 cache
+USE_CACHE = False
 
 # ============================================================
 # 讀取 / 儲存已發送的新聞
@@ -56,7 +58,7 @@ def fetch_news(sent_cache):
             for entry in feed.entries[:8]:
                 title = entry.get("title", "").strip()
                 link  = entry.get("link", "")
-                if title and title not in sent_cache and title not in [n["title"] for n in news_list]:
+                if title and title not in [n["title"] for n in news_list]:
                     news_list.append({"title": title, "link": link})
         except Exception as e:
             print(f"  ❌ 抓取新聞失敗：{e}")
