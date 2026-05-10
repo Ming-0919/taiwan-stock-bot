@@ -128,7 +128,7 @@ def build_report(etf_data_list, analysis):
     sorted_etfs = sorted(etf_data_list, key=lambda x: x["change_pct"], reverse=True)
 
     lines = [
-        "📰 **台股 ETF 投資早報**",
+        "📰 **台股 ETF 投資早報（昨日收盤）**",,
         f"📅 {today}",
         "━━━━━━━━━━━━━━━━━━━━",
         "**📊 ETF 今日排行**",
