@@ -150,7 +150,7 @@ def analyze_with_gemini(etf_data_list, news_list):
 總字數控制在 250 字以內，風格簡潔像投資早報。"""
 
     try:
-        url      = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
         payload  = {"contents": [{"parts": [{"text": prompt}]}]}
         response = requests.post(url, json=payload, timeout=30)
 

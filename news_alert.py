@@ -93,7 +93,7 @@ def filter_important_news(news_list):
 如果沒有真正重要的新聞，只需回覆「無重要新聞」四個字，不要其他內容。"""
 
     try:
-        url      = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
         payload  = {"contents": [{"parts": [{"text": prompt}]}]}
         response = requests.post(url, json=payload, timeout=30)
 
