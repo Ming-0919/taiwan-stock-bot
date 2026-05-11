@@ -1,4 +1,4 @@
-yfinance==0.2.40
-requests==2.32.3
-schedule==1.2.2
-feedparser==6.0.11
+yfinance
+requests
+schedule
+feedparser
