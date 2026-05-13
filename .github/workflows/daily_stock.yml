@@ -24,4 +24,5 @@ jobs:
       - name: 執行台股播報
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python taiwan_stock_bot.py
